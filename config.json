@@ -1,0 +1,14 @@
+{
+  "sta":{
+    "ssid":"Luigi",
+    "pwd":"lacasadeluigi2016",
+    "save":false,
+    "auto":false
+  },
+  "mqtt":{
+    "host":"192.168.0.19",
+    "port":"1883",
+    "baseChannel":"/dev/"
+  },
+  "deviceType":"switch"
+}

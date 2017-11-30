@@ -1,0 +1,14 @@
+{
+  "sta":{
+    "ssid":"",
+    "pwd":"",
+    "save":false,
+    "auto":false
+  },
+  "mqtt":{
+    "host":"",
+    "port":"",
+    "baseChannel":""
+  },
+  "deviceType":""
+}
