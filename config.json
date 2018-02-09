@@ -10,5 +10,9 @@
     "port":"1883",
     "baseChannel":"/dev/"
   },
-  "deviceType":"switch"
+  "connectors":[
+    {"name":"sw1", "type": "switch"},
+    {"name":"sw2", "type": "switch"},
+    {"name":"ir1", "type": "ir"}
+  ]
 }
