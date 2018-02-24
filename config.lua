@@ -1,7 +1,8 @@
 local module = {}
 
 f = file.open("config.json")
-module = sjson.decode(f.read())
+s = string.gsub(f.read(), "\n", "")
+module = sjson.decode(s)
 f.close()
 
 module.chipid = node.chipid()
