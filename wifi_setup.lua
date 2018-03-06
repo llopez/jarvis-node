@@ -2,7 +2,8 @@ local module = {}
 
 wifi.eventmon.register(wifi.eventmon.STA_GOT_IP, function(T)
   print("STA GOT IP: "..wifi.sta.getip())
-
+  
+  telnet_server.start()
   queue.start()
 end)
 
@@ -13,6 +14,7 @@ end)
 wifi.eventmon.register(wifi.eventmon.STA_DISCONNECTED, function(T)
   print("STA - DISCONNECTED".."\nSSID: "..T.SSID.."\nBSSID: "..T.BSSID.."\nreason: "..T.reason)
 
+  telnet_server.stop()
   queue.stop()
   wifi.sta.connect()
 end)
