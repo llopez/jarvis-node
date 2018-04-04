@@ -1,5 +1,6 @@
 config = require "config"
 wifi_setup = require "wifi_setup"
+irsend = require "irsend"
 connector = require "connector"
 queue = require "queue"
 telnet_server = require("telnet_srv")

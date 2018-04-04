@@ -11,8 +11,9 @@
     "baseChannel":""
   },
   "connectors":[
-    {"name":"sw1", "type": "switch"},
-    {"name":"sw2", "type": "switch"},
-    {"name":"ir1", "type": "ir"}
+    {"name":"sw1", "type": "switch", "pin": "4"},
+    {"name":"sw2", "type": "switch", "pin": "2"},
+    {"name":"ir1", "type": "ir", "pin": "1"},
+    {"name":"se1", "type": "sensor", "pin": "6"}
   ]
 }
