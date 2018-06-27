@@ -8,12 +8,12 @@
   "mqtt":{
     "host":"",
     "port":"",
-    "baseChannel":""
+    "username":"",
+    "password":"",
+    "nodeChannel":"/node/",
+    "serverChannel":"/jarvis/"
   },
-  "connectors":[
-    {"name":"sw1", "type": "switch", "pin": "4"},
-    {"name":"sw2", "type": "switch", "pin": "2"},
-    {"name":"ir1", "type": "ir", "pin": "1"},
-    {"name":"se1", "type": "sensor", "pin": "6"}
+  "pins":[
+    {"number":"4", "type": "switch", "mode": "output"}
   ]
 }

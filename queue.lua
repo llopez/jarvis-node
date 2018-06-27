@@ -10,8 +10,8 @@ local function handleError(client, reason)
   print("failed reason: " .. reason)
 end
 
-local function subscribeDevice()  
-  client:subscribe(config.mqtt.inputChannel, 0, function(conn)
+local function subscribeDevice()
+  client:subscribe(config.mqtt.nodeChannel .. config.chipid, 0, function(conn)
     print("Successfully subscribed to data endpoint")
   end)
 end
@@ -21,18 +21,18 @@ local function sendPing()
     local msg = {}
     msg.chipid = config.chipid
     msg.ip = wifi.sta.getip()
-    msg.connectors = config.connectors
+    msg.pins = config.pins
     local json = sjson.encode(msg)
-    client:publish(config.mqtt.pingChannel, json, 0, 0)
+    client:publish(config.mqtt.serverChannel .. 'ping', json, 0, 0)
   end
 end
 
 function module.start()
-  client = mqtt.Client(config.chipid, 120)
+  client = mqtt.Client(config.chipid, 120, config.mqtt.username, config.mqtt.password)
 
   client:on("message", function(conn, topic, data)
-    local msg = parse(data)
-    connector(msg.connector).command(msg.command)
+    local msg = parse(data) -- {value,pin,type}
+    connector(msg).command(msg.value)
   end)
 
   client:connect(config.mqtt.host, config.mqtt.port, 0, 0, function(con) 
